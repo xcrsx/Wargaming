@@ -1,5 +1,6 @@
-# Since one of the conditions was that the array could already be sorted,
-# I decided to choose the Timsort algorithm, since it was designed to sort such data.
+# Since one of the conditions was that the array could already be sorted, 
+# I decided to choose the Timsort algorithm because it has O(n logn) complexity 
+# in the average and the worse cases and O(n) in the best.
 
 
 minrun = 64
@@ -25,7 +26,7 @@ def merge_sort(arr):
     mid = len(arr) // 2
     
     left, right = merge_sort(arr[:mid]), merge_sort(arr[mid:])
-    return merge(left, right, arr.copy())
+    return merge(left, right, arr)
 
 def merge( left, right, merged):
 
@@ -60,10 +61,14 @@ def tim_sort(arr):
 
 
 
+
+
+
+
 if __name__ == "__main__":
     import random
-    arr = [random.randint(1, 90) for i in range(1000000)]
+
+    arr = [random.randint(1, 90) for i in range(100000)]
     check = arr.copy()
     check.sort()
     print(tim_sort(arr) == check)
-    
